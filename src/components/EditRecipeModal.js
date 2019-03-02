@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import {
   Modal,
   ModalCard,
@@ -12,22 +12,24 @@ import {
   ModalCardTitle,
   TextArea,
   ModalCardFooter,
-  Button
-} from "bloomer";
+  Button,
+  ModalBackground
+} from "bloomer"
 
 const EditRecipeModal = ({ isActive, onClose, onSave, title, recipe }) => {
   const [ingredients, setIngredients] = useState(
     recipe ? recipe.ingredients : ""
-  );
-  const [name, setName] = useState(recipe ? recipe.name : "");
+  )
+  const [name, setName] = useState(recipe ? recipe.name : "")
 
   const saveRecipe = e => {
-    onSave(name, ingredients);
-    onClose(e);
-  };
+    onSave(name, ingredients)
+    onClose(e)
+  }
 
   return (
     <Modal isActive={isActive}>
+      <ModalBackground />
       <ModalCard>
         <ModalCardHeader>
           <ModalCardTitle>{title || "Modifying Recipe"}</ModalCardTitle>
@@ -65,7 +67,7 @@ const EditRecipeModal = ({ isActive, onClose, onSave, title, recipe }) => {
         </ModalCardFooter>
       </ModalCard>
     </Modal>
-  );
-};
+  )
+}
 
-export default EditRecipeModal;
+export default EditRecipeModal
