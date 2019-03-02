@@ -1,30 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
-const useLocalStorage = (key, initialValue) => {
+const useLocalStorage = key => {
   const [value, setValue] = useState(
-    () => JSON.parse(window.localStorage.getItem(key)) || initialValue
-  );
+    () => new Map(JSON.parse(window.localStorage.getItem(key)))
+  )
 
-  useEffect(() => window.localStorage.setItem(key, JSON.stringify(value)), [
-    value
-  ]);
+  useEffect(() => {
+    window.localStorage.setItem(
+      key,
+      JSON.stringify(Array.from(value.entries()))
+    )
+  }, [value])
 
-  return [value, setValue];
-};
+  return [value, setValue]
+}
 
 const useRecipes = () => {
-  const [recipes, setRecipes] = useLocalStorage("recipes", new Map());
+  const [recipes, setRecipes] = useLocalStorage("recipes", new Map())
 
-  const addRecipe = (name, ingredients) =>
-    setRecipes(recipes.set(name, ingredients));
-  const editRecipe = (name, ingredients) =>
-    setRecipes(recipes.set(name, ingredients));
+  const addRecipe = (name, ingredients) => {
+    recipes.set(name, ingredients)
+    setRecipes(new Map(recipes))
+  }
+  const editRecipe = (name, ingredients) => {
+    recipes.set(name, ingredients)
+    setRecipes(new Map(recipes))
+  }
   const deleteRecipe = key => {
-    recipes.delete(key);
-    setRecipes(recipes);
-  };
+    recipes.delete(key)
+    setRecipes(new Map(recipes))
+  }
 
-  return { recipes, setRecipes, addRecipe, deleteRecipe, editRecipe };
-};
+  return { recipes, setRecipes, addRecipe, deleteRecipe, editRecipe }
+}
 
-export { useRecipes, useLocalStorage };
+export { useRecipes, useLocalStorage }
