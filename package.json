@@ -1,0 +1,26 @@
+{
+  "name": "recipe-box-hooks",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.2.15",
+    "@fortawesome/free-solid-svg-icons": "5.7.2",
+    "@fortawesome/react-fontawesome": "0.1.4",
+    "bloomer": "0.6.5",
+    "bulma": "0.7.4",
+    "node-sass": "4.11.0",
+    "react": "16.8.3",
+    "react-dom": "16.8.3",
+    "react-scripts": "2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+}
