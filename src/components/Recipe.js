@@ -5,7 +5,8 @@ import {
   MessageHeader,
   Container,
   Delete,
-  Button
+  Button,
+  Level
 } from "bloomer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +17,7 @@ export default function Recipe({ name, ingredients, onDelete, onEdit }) {
       <Message isColor="info">
         <MessageHeader>
           {name}
-          <div isPulled="right">
+          <Level ispulled="right">
             <Delete onClick={onDelete} />
             <Button
               onClick={onEdit}
@@ -35,7 +36,7 @@ export default function Recipe({ name, ingredients, onDelete, onEdit }) {
                 mask={["far", "circle"]}
               />
             </Button>
-          </div>
+          </Level>
         </MessageHeader>
         <MessageBody>{ingredients}</MessageBody>
       </Message>

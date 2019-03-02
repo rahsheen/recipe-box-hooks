@@ -7,7 +7,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useRecipes } from "./hooks";
 import Recipe from "./components/Recipe";
 import EditRecipeModal from "./components/EditRecipeModal";
-
 import "./styles.css";
 
 function App() {
@@ -29,12 +28,7 @@ function App() {
           isColor="danger"
           onClick={() => setAddingRecipe(true)}
           isSize="large"
-          style={{
-            borderRadius: 9999,
-            position: "absolute",
-            bottom: 25,
-            right: 25
-          }}
+          className="fab"
         >
           <FontAwesomeIcon icon={faPlus} />
         </Button>

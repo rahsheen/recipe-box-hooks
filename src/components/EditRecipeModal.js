@@ -15,9 +15,11 @@ import {
   Button
 } from "bloomer";
 
-const EditRecipeModal = ({ isActive, onClose, onSave, title, recipe = {} }) => {
-  const [ingredients, setIngredients] = useState(recipe.ingredients);
-  const [name, setName] = useState(recipe.name);
+const EditRecipeModal = ({ isActive, onClose, onSave, title, recipe }) => {
+  const [ingredients, setIngredients] = useState(
+    recipe ? recipe.ingredients : ""
+  );
+  const [name, setName] = useState(recipe ? recipe.name : "");
 
   const saveRecipe = e => {
     onSave(name, ingredients);
