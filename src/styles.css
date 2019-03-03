@@ -4,8 +4,9 @@
 }
 
 .fab {
-  border-radius: 9999;
   position: absolute;
+  width: 64px;
+  height: 64px;
   bottom: 25px;
   right: 25px;
 }

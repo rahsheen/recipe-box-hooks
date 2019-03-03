@@ -14,17 +14,6 @@ function App() {
   const [addingRecipe, setAddingRecipe] = useState(false)
   const [currentRecipe, setCurrentRecipe] = useState(false)
 
-  const renderRecipes = () => {
-    if (!recipes.size) return "No Recipes!"
-
-    let jsx = []
-    for (let [name, ingredients] of recipes) {
-      jsx.push()
-    }
-
-    return jsx
-  }
-
   return (
     <>
       <Hero isColor="info" isSize="small">
@@ -36,10 +25,8 @@ function App() {
       </Hero>
       <Section>
         <Button
-          isColor="danger"
           onClick={() => setAddingRecipe(true)}
-          isSize="large"
-          className="fab">
+          className="button is-rounded is-danger fab">
           <FontAwesomeIcon icon={faPlus} />
         </Button>
         <Container>
